@@ -1,0 +1,16 @@
+.modal{
+    height: 400px;
+    width: 600px;
+    background-color: rgba(0, 0 , 0, 0.4);
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    display: none;
+}
+.modal.active{
+    display: block;
+}
+.modalContent{
+    padding: 20px;
+    border-radius: 12px;
+}
