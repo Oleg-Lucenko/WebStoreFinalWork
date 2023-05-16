@@ -3,10 +3,12 @@
 }
 a{
   text-decoration: none;
+  color: black;
 }
 li{
   list-style: none;
   padding-right: 20px;
+
   
 }
 ul{
@@ -32,6 +34,40 @@ ul{
   background-color: white;
   cursor: pointer;
 }
-.modal{
-  display: none;
+.container{
+  max-width: 1410px;
+}
+.PhoneCategory, .macbookCategory, .AppleWatchCategory{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.PhoneCategory img, .macbookCategory img, .AppleWatchCategory img{
+  width: 320px;
+  height: 320px;
+}
+.card{
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 12px;
+  margin: 10px;
+}
+.card div{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.navigationList button{
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+}
+.showMore{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  
 }

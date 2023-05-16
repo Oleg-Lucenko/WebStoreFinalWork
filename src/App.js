@@ -4,12 +4,13 @@ import './App.css';
 import busket from './images/busket.png';
 import Modal from './components/modal';
 import { useState } from 'react';
+import * as ReactDOM from 'react-dom';
 
 function App() {
     const [modalActive, setModalActive]= useState(false);
     
   return (
-    <div>
+    <div className='container'>
        
      <header>
         <div className="top-line">
@@ -18,16 +19,16 @@ function App() {
                     <a href="#">Доставка</a>
                 </li>
                 <li>
-                    <a href="#">Способи оплати</a>
+                    <a href="#">Способы оплаты</a>
                 </li>
                 <li>
-                    <a href="#">Контакти</a>
+                    <a href="#">Контакты</a>
                 </li>
                 <li>
                 <button className="busketBtn"> <img className="busket" src={busket} alt="busket" /></button>
                 </li>
                 <li>
-                    <button className='registration' onClick={()=>setModalActive(!modalActive)}>Реестрація  </button>
+                    <button className='registration' onClick={()=>setModalActive(!modalActive)}>Регистрация  </button>
                 </li>
                 <div>
                 <Modal active={modalActive} setActive={setModalActive} />
@@ -36,20 +37,46 @@ function App() {
         </div>
          </header>
         <div className="special">
-            <p>Спеціальна пропозиція</p>
+            <p>Специальное предложение</p>
             <img className="iphone11" src={iphone11} alt="iphone11" />
             <p>
               Ціна: 17 973
             </p>
             <button className='buyBtn'>Купити</button>
         </div>
-        <div className='category1'>
+        <div className='navigation'>
+            <ul className='navigationList'>
+                <li><button>Phones</button></li>
+                <li><button>Macbooks</button></li>
+                <li><button>Watches</button></li>
+            </ul>
         </div>
-        <div className='category2'>
-
+        <div className='PhoneCategory'>
+            {allProducts.filter(allProducts => allProducts.category === 'phones').map((item)=>(
+                <div key={item.id} className='card'>
+                <div>{item.name}</div>
+                <div><img className='productImg' src={item.img} alt={item.name}></img></div>
+                <div><button className='showMore'>Подробнее</button></div>
+                </div>
+            ))}
         </div>
-        <div className='category3'>
-
+        <div className='macbookCategory'>
+        {allProducts.filter(allProducts => allProducts.category === 'macbooks').map((item)=>(
+                <div key={item.id} className='card'>
+                <div>{item.name}</div>
+                <div><img className='productImg' src={item.img} alt={item.name}></img></div>
+                <div><button className='showMore'>Подробнее</button></div>
+                </div>
+            ))}
+        </div>
+        <div className='AppleWatchCategory'>
+        {allProducts.filter(allProducts => allProducts.category === 'watches').map((item)=>(
+                <div key={item.id} className='card'>
+                <div>{item.name}</div>
+                <div><img className='productImg' src={item.img} alt={item.name}></img></div>
+                <div><button className='showMore'>Подробнее</button></div>
+                </div>
+            ))}
         </div>
     </div>
 
