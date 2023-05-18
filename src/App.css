@@ -73,9 +73,12 @@ ul{
   background-color: black;
   color: white;
   border-radius: 5px;
+<<<<<<< HEAD
 }
 button:hover{
   text-decoration: underline;
   text-shadow: 0 0 2px #000;
   cursor: pointer;
+=======
+>>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
 }

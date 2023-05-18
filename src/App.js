@@ -11,6 +11,7 @@ function App() {
     const [modalActive, setModalActive]= useState(false);
     const [productsModalActive, setProductsModalActive]= useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
+<<<<<<< HEAD
     
     const [isVisible, setIsVisible] = useState({ phones: false, macbooks: false, applewatches: false });
     const tooggleVisibillity = (divName) => {
@@ -21,6 +22,8 @@ function App() {
       };
    
 
+=======
+>>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
 
     const handleShowMore = (item) => {
         setSelectedItem(item);
@@ -77,8 +80,14 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
+<<<<<<< HEAD
         </div>};
         {isVisible && <div className='macbookCategory'>
+=======
+
+        </div>
+        <div className='macbookCategory'>
+>>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
         {allProducts.filter(allProducts => allProducts.category === 'macbooks').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
@@ -95,7 +104,11 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
+<<<<<<< HEAD
         </div>};
+=======
+        </div>
+>>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
         <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>
             {selectedItem &&
                 <div>
