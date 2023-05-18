@@ -1,0 +1,20 @@
+.products_modal{
+    height: 400px;
+    width: 600px;
+    background-color: lightgrey;
+    border-radius: 12px;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    display: none;
+}
+.products_modal.active{
+    display: block;
+}
+.products_modal.active div{
+    display: block;
+}
+.products_modalContent{
+    padding: 20px;
+    border-radius: 12px;
+}

@@ -3,15 +3,23 @@ import iphone11 from './images/iphone11.png';
 import './App.css';
 import busket from './images/busket.png';
 import Modal from './components/modal';
+import ProductsModal from './components/ProductsModal';
 import { useState } from 'react';
 import * as ReactDOM from 'react-dom';
 
 function App() {
     const [modalActive, setModalActive]= useState(false);
-    
+    const [productsModalActive, setProductsModalActive]= useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    const handleShowMore = (item) => {
+        setSelectedItem(item);
+        setProductsModalActive(true);
+    };
+
   return (
     <div className='container'>
-       
+
      <header>
         <div className="top-line">
             <ul className="horizontal-nav">
@@ -56,16 +64,17 @@ function App() {
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore'>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
+
         </div>
         <div className='macbookCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'macbooks').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore'>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
         </div>
@@ -74,13 +83,12 @@ function App() {
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore'>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
         </div>
+        <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>{selectedItem && <div>{selectedItem.description}</div>}</ProductsModal>
     </div>
-
-       
 );
 }
 
