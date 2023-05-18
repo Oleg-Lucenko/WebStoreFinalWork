@@ -36,16 +36,16 @@ function App() {
                     <a href="#">Доставка</a>
                 </li>
                 <li>
-                    <a href="#">Способы оплаты</a>
+                    <a href="#">Способи оплати</a>
                 </li>
                 <li>
-                    <a href="#">Контакты</a>
+                    <a href="#">Контакти</a>
                 </li>
                 <li>
                 <button className="busketBtn"> <img className="busket" src={busket} alt="busket" /></button>
                 </li>
                 <li>
-                    <button className='registration' onClick={()=>setModalActive(!modalActive)}>Регистрация  </button>
+                    <button className='registration' onClick={()=>setModalActive(!modalActive)}>Реєстрація</button>
                 </li>
                 <div>
                 <Modal active={modalActive} setActive={setModalActive} />
@@ -54,7 +54,7 @@ function App() {
         </div>
          </header>
         <div className="special">
-            <p>Специальное предложение</p>
+            <p>Спеціальна пропозиція</p>
             <img className="iphone11" src={iphone11} alt="iphone11" />
             <p>
               Ціна: 17 973
@@ -63,9 +63,9 @@ function App() {
         </div>
         <div className='navigation'>
             <ul className='navigationList'>
-                <li><button onClick={() => tooggleVisibillity('phones')}>Phones</button></li>
-                <li><button onClick={() => tooggleVisibillity('macbooks')}>Macbooks</button></li>
-                <li><button onClick={() => tooggleVisibillity('applewatches')}>Watches</button></li>
+                <li><button onClick={() => tooggleVisibillity('phones')}>Телефони</button></li>
+                <li><button onClick={() => tooggleVisibillity('macbooks')}>Ноутбуки</button></li>
+                <li><button onClick={() => tooggleVisibillity('applewatches')}>Годинники</button></li>
             </ul>
         </div>
         {isVisible.phones && <div className='PhoneCategory'>
@@ -73,7 +73,7 @@ function App() {
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Детальніше</button></div>
                 </div>
             ))}
         </div>};
@@ -82,7 +82,7 @@ function App() {
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Детальніше</button></div>
                 </div>
             ))}
         </div>};
@@ -91,7 +91,7 @@ function App() {
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Детальніше</button></div>
                 </div>
             ))}
         </div>};
