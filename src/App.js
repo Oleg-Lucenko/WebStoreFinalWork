@@ -18,7 +18,7 @@ function App() {
     };
 
   return (
-    <div className='container'>
+    <div className={productsModalActive || modalActive? "container_modal" : "container"}>
 
      <header>
         <div className="top-line">
@@ -87,7 +87,15 @@ function App() {
                 </div>
             ))}
         </div>
-        <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>{selectedItem && <div>{selectedItem.description}</div>}</ProductsModal>
+        <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>
+            {selectedItem &&
+                <div>
+                    <div>{selectedItem.name}</div>
+                    <div><img className='products_modal_img' src={selectedItem.img} alt={selectedItem.name}></img></div>
+                    <div>{selectedItem.description}</div>
+                    <div>Ціна: {selectedItem.price}</div>
+                </div>}
+        </ProductsModal>
     </div>
 );
 }
