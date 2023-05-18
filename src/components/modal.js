@@ -1,24 +1,51 @@
 import React from "react";
 import './modal.css'
+import { useState } from 'react';
 const Modal = ({active, setActive}) => {
+    const [Username, setUserName] = useState('');
+  const [Useremail, setUserEmail] = useState('');
+  const [Userpassword, setUserPassword] = useState('');
+ 
+  const handleNameChange = (event) => {
+    setUserName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setUserEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setUserPassword(event.target.value);
+  };
+ 
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setActive(false)
+    localStorage.setItem('Username', Username);
+    localStorage.setItem('Useremail', Useremail);
+    localStorage.setItem('Userpassword', Userpassword);
+    console.log('handleSubmit');
+
+  };
     
     return (
         
         <div className={active ? "modal active" : 'modal'}>
-            <div className="modalContent " onClick={e =>e.preventDefault()}>
-                <form>
+            <div className="modalContent">
+                <form onSubmit={handleSubmit}>
                     <h2>Регистрация</h2>
                     <div>
-                        <label htmlfor="name">Name:</label>
-                        <input type="text" id="name" name="name" required></input>
+                        <label htmlFor="name">Name:</label>
+                        <input type="text" value={Username} onChange={handleNameChange} required></input>
                     </div>
                     <div>
-                        <label htmlfor="emal">Email:</label>
-                        <input type="email" id="Email" name="Email" required></input>
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" value={Useremail} onChange={handleEmailChange} required></input>
                     </div>
                     <div>
-                    <label htmlfor="password">Password:</label>
-                    <input type="password" id="password" name="password" required></input>
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" value={Userpassword} onChange={handlePasswordChange} required></input>
                     </div>
                     <div>
                     <button type='submit' onClick={() => setActive(false)}>Зарегистрироваться</button>

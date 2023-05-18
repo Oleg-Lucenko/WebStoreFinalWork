@@ -5,15 +5,15 @@ import busket from './images/busket.png';
 import Modal from './components/modal';
 import ProductsModal from './components/ProductsModal';
 import { useState } from 'react';
-import * as ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 
 function App() {
     const [modalActive, setModalActive]= useState(false);
     const [productsModalActive, setProductsModalActive]= useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-<<<<<<< HEAD
     
-    const [isVisible, setIsVisible] = useState({ phones: false, macbooks: false, applewatches: false });
+    const [isVisible, setIsVisible] = useState({phones: false,macbooks: false,applewatches: false });
+    console.log(isVisible)
     const tooggleVisibillity = (divName) => {
         setIsVisible((prevState) => ({
           ...prevState,
@@ -21,10 +21,6 @@ function App() {
         }));
       };
    
-
-=======
->>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
-
     const handleShowMore = (item) => {
         setSelectedItem(item);
         setProductsModalActive(true);
@@ -72,7 +68,7 @@ function App() {
                 <li><button onClick={() => tooggleVisibillity('applewatches')}>Watches</button></li>
             </ul>
         </div>
-        {isVisible && <div className='PhoneCategory'>
+        {isVisible.phones && <div className='PhoneCategory'>
             {allProducts.filter(allProducts => allProducts.category === 'phones').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
@@ -80,14 +76,8 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
-<<<<<<< HEAD
         </div>};
-        {isVisible && <div className='macbookCategory'>
-=======
-
-        </div>
-        <div className='macbookCategory'>
->>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
+        {isVisible.macbooks && <div className='macbookCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'macbooks').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
@@ -96,7 +86,7 @@ function App() {
                 </div>
             ))}
         </div>};
-        {isVisible && <div className='AppleWatchCategory'>
+        {isVisible.applewatches && <div className='AppleWatchCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'watches').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
@@ -104,11 +94,7 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
-<<<<<<< HEAD
         </div>};
-=======
-        </div>
->>>>>>> dfdaed03b5454f3c46cc2bb7badf8da0562ef5c9
         <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>
             {selectedItem &&
                 <div>
