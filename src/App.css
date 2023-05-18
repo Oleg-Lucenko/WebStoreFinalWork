@@ -4,12 +4,15 @@
 a{
   text-decoration: none;
   color: black;
+  transition: text-shadow 0.2s;
+}
+a:hover{
+  text-decoration: underline;
+  text-shadow: 0 0 2px #000;
 }
 li{
   list-style: none;
   padding-right: 20px;
-
-  
 }
 ul{
   display: flex;
@@ -35,6 +38,7 @@ ul{
   cursor: pointer;
 }
 .container{
+  margin: 0 auto;
   max-width: 1410px;
 }
 .PhoneCategory, .macbookCategory, .AppleWatchCategory{
@@ -69,5 +73,9 @@ ul{
   background-color: black;
   color: white;
   border-radius: 5px;
-  
+}
+button:hover{
+  text-decoration: underline;
+  text-shadow: 0 0 2px #000;
+  cursor: pointer;
 }

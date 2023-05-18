@@ -3,15 +3,33 @@ import iphone11 from './images/iphone11.png';
 import './App.css';
 import busket from './images/busket.png';
 import Modal from './components/modal';
+import ProductsModal from './components/ProductsModal';
 import { useState } from 'react';
 import * as ReactDOM from 'react-dom';
 
 function App() {
     const [modalActive, setModalActive]= useState(false);
+    const [productsModalActive, setProductsModalActive]= useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
     
+    const [isVisible, setIsVisible] = useState({ phones: false, macbooks: false, applewatches: false });
+    const tooggleVisibillity = (divName) => {
+        setIsVisible((prevState) => ({
+          ...prevState,
+          [divName]: !prevState[divName]
+        }));
+      };
+   
+
+
+    const handleShowMore = (item) => {
+        setSelectedItem(item);
+        setProductsModalActive(true);
+    };
+
   return (
-    <div className='container'>
-       
+    <div className={productsModalActive || modalActive? "container_modal" : "container"}>
+
      <header>
         <div className="top-line">
             <ul className="horizontal-nav">
@@ -46,41 +64,48 @@ function App() {
         </div>
         <div className='navigation'>
             <ul className='navigationList'>
-                <li><button>Phones</button></li>
-                <li><button>Macbooks</button></li>
-                <li><button>Watches</button></li>
+                <li><button onClick={() => tooggleVisibillity('phones')}>Phones</button></li>
+                <li><button onClick={() => tooggleVisibillity('macbooks')}>Macbooks</button></li>
+                <li><button onClick={() => tooggleVisibillity('applewatches')}>Watches</button></li>
             </ul>
         </div>
-        <div className='PhoneCategory'>
+        {isVisible && <div className='PhoneCategory'>
             {allProducts.filter(allProducts => allProducts.category === 'phones').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore'>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
-        </div>
-        <div className='macbookCategory'>
+        </div>};
+        {isVisible && <div className='macbookCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'macbooks').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore'>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
-        </div>
-        <div className='AppleWatchCategory'>
+        </div>};
+        {isVisible && <div className='AppleWatchCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'watches').map((item)=>(
                 <div key={item.id} className='card'>
                 <div>{item.name}</div>
                 <div><img className='productImg' src={item.img} alt={item.name}></img></div>
-                <div><button className='showMore'>Подробнее</button></div>
+                <div><button className='showMore' onClick={() => handleShowMore(item)}>Подробнее</button></div>
                 </div>
             ))}
-        </div>
+        </div>};
+        <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>
+            {selectedItem &&
+                <div>
+                    <div>{selectedItem.name}</div>
+                    <div><img className='products_modal_img' src={selectedItem.img} alt={selectedItem.name}></img></div>
+                    <div>{selectedItem.description}</div>
+                    <div>Ціна: {selectedItem.price}</div>
+                </div>}
+        </ProductsModal>
     </div>
-
-       
 );
 }
 
