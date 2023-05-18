@@ -5,9 +5,9 @@ console.log(props.children)
 
         <div className={props.active ? "products_modal active" : 'products_modal'}>
             <div className="products_modalContent">
-            <button onClick={() => props.setActive(false)}>X</button>
+            <button className="products_modal_close_btn" onClick={() => props.setActive(false)}>X</button>
                 {props.children}
-            <button onClick={() => props.setActive(false)}>Купити</button>
+            <button className="products_modal_buy_btn" onClick={() => props.setActive(false)}>Купити</button>
             </div>
         </div>
 
