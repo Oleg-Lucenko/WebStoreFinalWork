@@ -30,9 +30,18 @@ const Modal = ({active, setActive}) => {
   };
     
     return (
+
+      <div className="modal-registration-container">
+
+        <a href="#" className={active ? 'overlay active' : 'overlay'}></a>
         
         <div className={active ? "modal active" : 'modal'}>
+
             <div className="modalContent">
+
+
+            <button className="close-registration-btn" onClick={() => setActive(false)}></button>
+
                 <form onSubmit={handleSubmit}>
                     <h2>Регистрация</h2>
                     <div>
@@ -48,11 +57,12 @@ const Modal = ({active, setActive}) => {
                     <input type="password" value={Userpassword} onChange={handlePasswordChange} required></input>
                     </div>
                     <div>
-                    <button type='submit' onClick={() => setActive(false)}>Зарегистрироваться</button>
+                    <button type='submit' className="submit-registration" onClick={() => setActive(false)}>Зарегистрироваться</button>
                     </div>
                 </form>
                 </div>
                 </div>
+        </div>
            
 )}
 export default Modal;

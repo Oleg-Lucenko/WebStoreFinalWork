@@ -13,6 +13,17 @@
     display: block;
 }
 
+.overlay.active {
+    top: 0;
+    left: 0;
+    display: block;
+    position: fixed;
+    background-color: #000000ba;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
+}
+
 .products_modalContent{
     display: flex;
     flex-direction: column;
@@ -48,11 +59,31 @@
     background-color: black;
     color: white;
 }
+
+.products_modal_close_btn:hover {
+    text-decoration: none;
+    border-style: inset;
+    background-color: black;
+    color: #d40404;
+    cursor: pointer;
+}
+
 .products_modal_buy_btn,
 .showMore{
     background-color: black;
     color: white;
     min-width: 50px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 8px;
+    border-width: 3px;
+    cursor: pointer;
 }
+
+.products_modal_buy_btn:hover,
+.showMore:hover {
+    text-decoration: none;
+    border-style: inset;
+    background-color: black;
+    color: #329a4a;
+    cursor: pointer;
+  }

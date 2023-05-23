@@ -1,19 +1,22 @@
 import allProducts from './components/products';
 import iphone11 from './images/iphone11.png';
 import './App.css';
-import busket from './images/busket.png';
+import basket from './images/basket.png';
 import Modal from './components/modal';
 import ProductsModal from './components/ProductsModal';
+import Basket from './components/Basket.js';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 function App() {
-    const [modalActive, setModalActive]= useState(false);
-    const [productsModalActive, setProductsModalActive]= useState(false);
+    const [modalActive, setModalActive] = useState(false);
+    const [productsModalActive, setProductsModalActive] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [basketActive, setBasketActive] = useState(false);
+    const [storage, changeContent] = useState(Object.keys(localStorage));
     
     const [isVisible, setIsVisible] = useState({phones: false,macbooks: false,applewatches: false });
-    console.log(isVisible)
+
     const tooggleVisibillity = (divName) => {
         setIsVisible((prevState) => ({
           ...prevState,
@@ -24,6 +27,13 @@ function App() {
     const handleShowMore = (item) => {
         setSelectedItem(item);
         setProductsModalActive(true);
+    };
+
+    const addToBasket = (item) => {
+
+        let itemInStorageString = JSON.stringify(item);
+        localStorage.setItem(`${item.id}`, itemInStorageString);
+        changeContent(Object.keys(localStorage));
     };
 
   return (
@@ -42,7 +52,9 @@ function App() {
                     <a href="#">Контакти</a>
                 </li>
                 <li>
-                <button className="busketBtn"> <img className="busket" src={busket} alt="busket" /></button>
+                <button className="basketBtn" onClick={() => setBasketActive(!basketActive)}> 
+                    {storage.length != 0 && <span className='items-in-basket-counter'>{storage.length}</span>}
+                </button>     
                 </li>
                 <li>
                     <button className='registration' onClick={()=>setModalActive(!modalActive)}>Реєстрація</button>
@@ -59,7 +71,7 @@ function App() {
             <p>
               Ціна: 17 973
             </p>
-            <button className='buyBtn'>Купити</button>
+            <button className='buyBtn' onClick={() => addToBasket(allProducts[0])}>Купити</button>
         </div>
         <div className='navigation'>
             <ul className='navigationList'>
@@ -68,6 +80,7 @@ function App() {
                 <li><button onClick={() => tooggleVisibillity('applewatches')}>Годинники</button></li>
             </ul>
         </div>
+
         {isVisible.phones && <div className='PhoneCategory'>
             {allProducts.filter(allProducts => allProducts.category === 'phones').map((item)=>(
                 <div key={item.id} className='card'>
@@ -76,7 +89,8 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Детальніше</button></div>
                 </div>
             ))}
-        </div>};
+        </div>}
+
         {isVisible.macbooks && <div className='macbookCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'macbooks').map((item)=>(
                 <div key={item.id} className='card'>
@@ -85,7 +99,8 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Детальніше</button></div>
                 </div>
             ))}
-        </div>};
+        </div>}
+
         {isVisible.applewatches && <div className='AppleWatchCategory'>
         {allProducts.filter(allProducts => allProducts.category === 'watches').map((item)=>(
                 <div key={item.id} className='card'>
@@ -94,8 +109,9 @@ function App() {
                 <div><button className='showMore' onClick={() => handleShowMore(item)}>Детальніше</button></div>
                 </div>
             ))}
-        </div>};
-        <ProductsModal active={productsModalActive} setActive={setProductsModalActive}>
+        </div>}
+
+        <ProductsModal active={productsModalActive} setActive={setProductsModalActive} addToBasket={addToBasket} selectedItem={selectedItem}>
             {selectedItem &&
                 <div>
                     <div>{selectedItem.name}</div>
@@ -104,6 +120,8 @@ function App() {
                     <div>Ціна: {selectedItem.price}</div>
                 </div>}
         </ProductsModal>
+
+        <Basket storage={storage} changeContent={changeContent} basketActive={basketActive} setBasketActive={setBasketActive}/>
     </div>
 );
 }
