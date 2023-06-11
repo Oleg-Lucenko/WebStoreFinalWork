@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/WebStoreFinalWork/static/css/main.4e784735.css",
+    "main.js": "/WebStoreFinalWork/static/js/main.93e7c1b2.js",
+    "static/js/787.bd02f72e.chunk.js": "/WebStoreFinalWork/static/js/787.bd02f72e.chunk.js",
+    "static/media/applewatchultra.png": "/WebStoreFinalWork/static/media/applewatchultra.86980b841e7c1eb9c5ba.png",
+    "static/media/applewatchse.png": "/WebStoreFinalWork/static/media/applewatchse.d84046c04b33fa83c79c.png",
+    "static/media/iphone14.png": "/WebStoreFinalWork/static/media/iphone14.c4472bcde7df29251c4e.png",
+    "static/media/applewatch8.png": "/WebStoreFinalWork/static/media/applewatch8.815dea2a5e413d8f3879.png",
+    "static/media/macbookair13.png": "/WebStoreFinalWork/static/media/macbookair13.a4e7fa20b26d28a42b02.png",
+    "static/media/iphone13.png": "/WebStoreFinalWork/static/media/iphone13.10f497985a1701a0dd81.png",
+    "static/media/imac24.png": "/WebStoreFinalWork/static/media/imac24.711116ff7d1b746b7eaf.png",
+    "static/media/iphone12.png": "/WebStoreFinalWork/static/media/iphone12.720190dbf0385479966a.png",
+    "static/media/iphone11.png": "/WebStoreFinalWork/static/media/iphone11.bbb220389ade40c0db43.png",
+    "static/media/macmini.png": "/WebStoreFinalWork/static/media/macmini.0b1cabc20abea8c52b8e.png",
+    "static/media/busket.png": "/WebStoreFinalWork/static/media/busket.4ca63908192114bb0aa7.png",
+    "index.html": "/WebStoreFinalWork/index.html",
+    "main.4e784735.css.map": "/WebStoreFinalWork/static/css/main.4e784735.css.map",
+    "main.93e7c1b2.js.map": "/WebStoreFinalWork/static/js/main.93e7c1b2.js.map",
+    "787.bd02f72e.chunk.js.map": "/WebStoreFinalWork/static/js/787.bd02f72e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e784735.css",
+    "static/js/main.93e7c1b2.js"
+  ]
+}
