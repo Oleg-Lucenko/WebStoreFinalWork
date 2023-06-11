@@ -4,17 +4,86 @@
     background-color: lightgrey;
     border-radius: 12px;
     position: fixed;
-    top: 100px;
-    left: 100px;
     display: none;
 }
+
 .modal.active{
     display: block;
+    top: 50%;
+    right: 50%;
+    bottom: -20%;
+    transform:translate(50%, -50%);
 }
 .modal.active div{
     display: block;
 }
+
+.overlay.active {
+    top: 0;
+    left: 0;
+    display: block;
+    position: fixed;
+    background-color: #000000ba;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
+}
+
 .modalContent{
     padding: 20px;
     border-radius: 12px;
 }
+
+form div {
+    padding: 10px;
+}
+
+.close-registration-btn {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+}
+
+.close-registration-btn:hover:after{
+    content: '';
+    display: block;
+    background-image: url('../images/close-basket-img.png');
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
+
+}
+
+.close-registration-btn::before{
+    content: '';
+    display: block;
+    background-image: url('../images/close-basket-img-gray.png');
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
+
+}
+
+.close-registration-btn:hover:before {
+    display: none;
+}
+
+.submit-registration {
+    text-decoration: none;
+    border-color: #e2e2e2;
+    border-radius: 4px;
+    background-color: #dee0ea;
+    cursor: pointer;
+    margin: 20px 0 0 0;
+}
+
+.submit-registration:hover {
+    text-decoration: none;
+    border-color: #e2e2e2;
+    border-radius: 4px;
+    background-color: #898da0;
+    border-style: ridge;
+  }

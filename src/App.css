@@ -19,10 +19,27 @@ ul{
   justify-content: center;
   align-items: center;
 }
-.busket{
+.basket-img{
   width: 40px;
   height: 40px;
 }
+
+.registration {
+  text-decoration: none;
+  border-color: #e2e2e2;
+  border-radius: 4px;
+  background-color: #dee0ea;
+  cursor: pointer;
+}
+
+.registration:hover {
+  text-decoration: none;
+  border-color: #e2e2e2;
+  border-radius: 4px;
+  background-color: #898da0;
+  border-style: ridge;
+}
+
 .iphone11{
   width: 200px;
   height: 200px;
@@ -32,11 +49,57 @@ ul{
   justify-content: center;
   align-items: center;
 }
-.busketBtn{
+
+
+.basketBtn {
+  position: relative;
   border: none;
   background-color: white;
+  right: 0;
+  top: -10px;
+  padding: 4px 10px;
+  border-style: none;
+  border-radius: 3px;
+  background-color: transparent;
   cursor: pointer;
 }
+
+
+.basketBtn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: -8px;
+  background-image: url('./images/basket.png');
+  background-repeat: no-repeat;
+  background-size: 35px;
+  width: 35px;
+  height: 35px;
+}
+
+.basketBtn::after {
+  content: '';
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: -8px;
+  background-image: url('./images/basket-green.png');
+  background-repeat: no-repeat;
+  background-size: 35px;
+  width: 35px;
+  height: 35px;
+}
+
+.basketBtn:hover:after {
+  display: block;
+}
+
+.basketBtn:hover::before {
+  display: none;
+}
+
+
 .container{
   margin: 0 auto;
   max-width: 1410px;
@@ -68,14 +131,49 @@ ul{
   background-color: black;
   color: white;
   border-radius: 12px;
+  border-width: 4px;
 }
+
+.navigationList button:hover {
+  text-decoration: none;
+  border-style: inset;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  color: #329a4a;
+  cursor: pointer;
+}
+
 .buyBtn{
   background-color: black;
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
+  border-width: 4px;
 }
-button:hover{
-  text-decoration: underline;
-  text-shadow: 0 0 2px #000;
+
+.buyBtn:hover {
+  text-decoration: none;
+  border-style: inset;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  color: #329a4a;
   cursor: pointer;
+  border-width: 4px;
+}
+
+button:hover{
+  text-shadow: 0 0 2px #000;
+}
+
+.items-in-basket-counter {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  top: -14px;
+  right: -10px;
+  background-color: green;
+  border-radius: 50%;
+  padding: 3px;
+  width: 15px;
 }
